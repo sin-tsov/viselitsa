@@ -16,12 +16,14 @@ class Game
 
   def errors_allowed
     TOTAL_ERRORS_ALLOWED - errors_made
+  
   end
+  
 
   def normalize_letter(letter)
     case letter
-    when "Е" then "Ё"
-    when "И" then "Й"
+    when "Ё" then "Е"
+    when "Й" then "И"
     else
     letter
     end
