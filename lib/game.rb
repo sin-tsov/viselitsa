@@ -24,8 +24,7 @@ class Game
     case letter
     when "Ё" then "Е"
     when "Й" then "И"
-    else
-    letter
+    else letter    
     end
   end
 
