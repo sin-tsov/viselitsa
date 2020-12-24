@@ -11,7 +11,7 @@
 ```
 $ git clone https://github.com/sin-tsov/viselitsa.git
 $ bundle install
-$ ruby viselitsa.rb
+$ bundle exec ruby viselitsa.rb
 ```
 Программа написана на языке ruby.
 
