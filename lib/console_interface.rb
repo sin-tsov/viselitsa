@@ -1,22 +1,15 @@
 class ConsoleInterface
-  FIGURES =
-      Dir[__dir__ + '/../data/figures/*.txt'].
+  FIGURES = Dir[
+    File.join(__dir__, "..", "data", "figures", "*.txt")
+    ].
       sort.
-      map { |file_name| File.read(file_name) }
+        map {|file_name| File.read(file_name)}
 
   def initialize(game)
     @game = game
   end
 
   def print_out
-    # puts <<~END
-    #   Слово: #{word_to_show}.colorize(color: :blue)
-    #   #{figure}.colorize(color: :yellow)
-    #   Ошибки (#{@game.errors_made}): #{errors_to_show}.colorize(color: :red)
-    #   У вас осталось ошибок: #{@game.errors_allowed}
-
-    # END
-
     puts "Слово: #{word_to_show}".colorize(color: :blue)
     puts "#{figure}".colorize(color: :yellow)
     puts "Ошибки #{@game.errors_made}: #{errors_to_show}".colorize(color: :red)
@@ -25,12 +18,12 @@ class ConsoleInterface
     if @game.won?
       puts "Поздравляем, вы выиграли!"
     elsif @game.lost?
-      puts "Вы проиграли, загаданное слово: #{@game.word}"
+      puts "Вы проиграли, загаданное слово: #{@game.word}".white.on_green.blink
     end
   end
 
   def figure
-    return FIGURES[@game.errors_made]
+    FIGURES[@game.errors_made]
   end
 
   def word_to_show
@@ -42,17 +35,16 @@ class ConsoleInterface
           letter
         end
       end
-
-    return result.join(' ')
+    result.join(' ')
   end
 
   def errors_to_show
-    return @game.errors.join(', ')
+    @game.errors.join(', ')
   end
 
   def get_input
     print "Введите следующую букву: "
     letter = gets[0].upcase
-    return letter
   end
+
 end
