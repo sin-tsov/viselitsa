@@ -10,9 +10,8 @@
 
 ```
 $ git clone https://github.com/sin-tsov/viselitsa.git
-$ cd hangman
 $ bundle install
-$ ruby main.rb
+$ ruby viselitsa.rb
 ```
 Программа написана на языке ruby.
 
