@@ -1,9 +1,6 @@
 class ConsoleInterface
-  FIGURES = Dir[
-    File.join(__dir__, "..", "data", "figures", "*.txt")
-    ].
-      sort.
-        map {|file_name| File.read(file_name)}
+  FIGURES = 
+  Dir[File.join(__dir__, "..", "data", "figures", "*.txt")].sort.map {|file_name| File.read(file_name)}      
 
   def initialize(game)
     @game = game
@@ -46,5 +43,4 @@ class ConsoleInterface
     print "Введите следующую букву: "
     letter = gets[0].upcase
   end
-
 end

@@ -22,8 +22,7 @@ class Game
     case letter
     when "Е" then "Ё"
     when "И" then "Й"
-    else
-    letter
+    else letter
     end
   end
 
@@ -60,6 +59,5 @@ class Game
 
   def word
     @letters.join
-  end
-  
+  end  
 end
